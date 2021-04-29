@@ -1,0 +1,48 @@
+.gridElement {
+  padding: 7%;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.dropped {
+  height: 75px;
+  width: 200px;
+}
+
+.big-board {
+  text-align: center;
+
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 3px;
+}
+.drop-zone {
+  height: 75px;
+  width: 200px;
+  text-align: center;
+  border: 2px solid black;
+}
+
+.drop-zone--over {
+  opacity: 0.5;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 3px;
+}
+
+.removeButton {
+  height: 15px;
+  width: 15px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 15%;
+}

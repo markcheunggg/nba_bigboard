@@ -1,4 +1,4 @@
-function remove_prospect(the_button){
+function remove_prospect(the_button) {
 
     player = the_button.parentNode
     console.log(the_button)
@@ -13,7 +13,23 @@ function remove_prospect(the_button){
     var prospect_bank = document.getElementById("prospect-bank")
     prospect_bank.appendChild(player)
 
-   
 
 
+
+}
+function create_modal(id) {
+    var stats = data[id]
+    console.log(stats);
+
+    document.getElementById('modal-text').innerHTML = `            
+    <img src='img/${id+1}.png' style="float: right; height: 200px;" >
+    <h1>${stats.Player}</h1>
+    <h2 style="padding-top:0">Team: ${stats.Team}</h2>
+    Points Per Game: ${stats.PTS}<br><br>
+    Assists Per Game: ${stats.AST}<br><br>
+    Rebounds Per Game: ${stats.TRB}<br><br>
+    Steals Per game: ${stats.STL}<br><br>
+    Blocks Per Game: ${stats.BLK}<br><br>`;
+
+    modal.style.display = "block";
 }

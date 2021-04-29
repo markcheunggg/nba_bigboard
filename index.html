@@ -1,136 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="index.css"/>
+    <title>Big Board</title>
+    <link rel="stylesheet" href="index.css" />
 </head>
 
 
 <body>
- <h1>Big Board</h1>
+    <h1>Big Board</h1>
+    <h2>Prospect Bank</h2>
+    <div class="grid-container" , id="prospect-bank">
+        <div draggable="true" id="CadeCunningham" onclick='create_modal(0)' class="gridElement draggable"> Cade Cunningham </div>
+        <div draggable="true" id="EvanMobley" onclick='create_modal(1)' class="gridElement draggable">Evan Mobley</div>
+        <div draggable="true" id="JalenSuggs" onclick='create_modal(2)' class="gridElement draggable">Jalen Suggs</div>
+        <div draggable="true" id="JalenGreen" onclick='create_modal(3)' class="gridElement draggable">Jalen Green</div>
+        <div draggable="true" id="JonathanKuminga" onclick='create_modal(4)' class="gridElement draggable">Jonathan Kuminga</div>
+    </div>
+    <div id="board">
+        <div class="big-board">
+            <div id="1" class="drop-zone"> </div>
+            <div id="2" class="drop-zone"> </div>
+            <div id="3" class="drop-zone"> </div>
+            <div id="4" class="drop-zone"> </div>
+            <div id="5" class="drop-zone"> </div>
+        </div>
+    </div>
 
+    <div id="myModal" class="modal">
 
-<div class="big-board">
-    <div id="1" class="drop-zone"> 1 </div>
-    <div id="2" class="drop-zone"> 2 </div>
-    <div id="3" class="drop-zone"> 3 </div>
-    <div id="4" class="drop-zone"> 4 </div>
-</div>
+        <!-- Modal content -->
+        <div class="modal-content" id='modal-content'>
+            <span class="close" onclick="modal.style.display = 'none';">&times;</span>
+            <p id='modal-text'>Some text in the Modal..</p>
+        </div>
 
-<h2>Prospect Bank</h2>
-<div class="grid-container", id="prospect-bank"> 
-    <div draggable="true" id="CadeCunningham" class="gridElement draggable"> Cade Cunningham </div>
-    <div draggable="true" id="EvanMobley" class="gridElement draggable">Evan Mobley</div>
-    <div draggable="true" id="JalenSuggs" class="gridElement draggable">Jalen Suggs</div>
-    <div draggable="true" id="JalenGreen" class="gridElement draggable">Jalen Green</div>
-    <div draggable="true" id="JonathanKuminga" class="gridElement draggable">Jonathan Kuminga</div>
-</div>
-
-
-<script>
-
-    /*
-    This is basically all the drag-and-drop stuff:
-
-    */
-const draggableElements = [...document.querySelectorAll(".draggable")];
-draggableElements.forEach(function(item) {
-    //tbh, i just copied this from a tutorial.
-    //idk what it does exactly, but I think it identifies all the IDs of the draggable elements. 
-    item.addEventListener("dragstart", e=> {
-        e.dataTransfer.setData('text/plain', item.id)})
-    });
-
-
-for (const dropZone of document.querySelectorAll(".drop-zone")) {
-
-
-    // When draggable element is over a drop zone.
-    dropZone.addEventListener("dragover", e=> {
-        e.preventDefault();
-        //dropZone.classList.add("drop-zone--over");
-    });
-
-    dropZone.addEventListener("dragleave", e=> {
-        //dropZone.classList.remove("drop-zone--over");
-        e.preventDefault();
-        const leftElement = document.getElementById(e.target.id);
-
+    </div>
+    <script id="remove_js" src="index.js"></script>
+    <script src="stats.js"></script>
+    <script>
+        var modal = document.getElementById("myModal");
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
         /*
-        This code removes an existing player from the big board if you drag them out of their drop zone. 
-        It's obsolete cause of the "red-X" button, but it's here just in case we want to
-        reimplement it.
+        This is basically all the drag-and-drop stuff:
+    
+        */
+        const draggableElements = [...document.querySelectorAll(".draggable")];
+        draggableElements.forEach(function (item) {
+            //tbh, i just copied this from a tutorial.
+            //idk what it does exactly, but I think it identifies all the IDs of the draggable elements. 
+            item.addEventListener("dragstart", e => {
+                e.dataTransfer.setData('text/plain', item.id)
+            })
+        });
 
-        leftElement.addEventListener("dragend", e=>{
-            e.preventDefault();
 
-            if (leftElement.classList.contains("dropped")) {
-                
-                leftElement.classList.remove("dropped");
-                leftElement.classList.add("gridElement");
-                var grid = document.getElementById("prospect-bank")
+        for (const dropZone of document.querySelectorAll(".drop-zone")) {
 
-                if (dropZone.contains(leftElement)){
-                    dropZone.removeChild(leftElement)
+
+            // When draggable element is over a drop zone.
+            dropZone.addEventListener("dragover", e => {
+                e.preventDefault();
+                //dropZone.classList.add("drop-zone--over");
+            });
+
+            dropZone.addEventListener("dragleave", e => {
+                //dropZone.classList.remove("drop-zone--over");
+                e.preventDefault();
+                const leftElement = document.getElementById(e.target.id);
+
+                /*
+                This code removes an existing player from the big board if you drag them out of their drop zone. 
+                It's obsolete cause of the "red-X" button, but it's here just in case we want to
+                reimplement it.
+        
+                leftElement.addEventListener("dragend", e=>{
+                    e.preventDefault();
+        
+                    if (leftElement.classList.contains("dropped")) {
+                        
+                        leftElement.classList.remove("dropped");
+                        leftElement.classList.add("gridElement");
+                        var grid = document.getElementById("prospect-bank")
+        
+                        if (dropZone.contains(leftElement)){
+                            dropZone.removeChild(leftElement)
+                        }
+                        console.log(dropZone.childNodes)
+                        console.log("hello")
+        
+                       
+                        grid.appendChild(leftElement)
+                    }
+        
+                    */
+            })
+
+            //When draggable element is dropped onto a drop zone.
+            dropZone.addEventListener("drop", e => {
+                e.preventDefault();
+                const droppedElementId = e.dataTransfer.getData("text/plain");
+                const droppedElement = document.getElementById(droppedElementId);
+
+                if (dropZone.childNodes.length < 2) {
+                    var grid = document.getElementById("prospect-bank")
+
+                    if (grid.contains(droppedElement)) {
+                        grid.removeChild(droppedElement)
+                    }
+
+                    dropZone.appendChild(droppedElement);
+                    droppedElement.classList.remove("gridElement");
+                    droppedElement.classList.add("dropped");
+
+
+                    var removeButton = document.createElement("INPUT");
+                    removeButton.setAttribute("src", "https://www.freeiconspng.com/thumbs/x-png/x-png-18.png")
+                    removeButton.setAttribute("onclick", "remove_prospect(this)")
+                    removeButton.setAttribute("type", "image")
+                    removeButton.setAttribute("class", "removeButton")
+
+
+
+
+                    droppedElement.appendChild(removeButton)
+
+                    console.log(droppedElement.childNodes)
+
+
+
+                    //dropZone.classList.remove("drop-zone--over");
                 }
-                console.log(dropZone.childNodes)
-                console.log("hello")
 
-               
-                grid.appendChild(leftElement)
-            }
-
-            */
-    })
-
-    //When draggable element is dropped onto a drop zone.
-    dropZone.addEventListener("drop", e=> {
-        e.preventDefault();
-        const droppedElementId = e.dataTransfer.getData("text/plain");
-        const droppedElement = document.getElementById(droppedElementId);
-        
-        if (dropZone.childNodes.length < 2){
-            var grid = document.getElementById("prospect-bank")
-
-            if (grid.contains(droppedElement)){
-                grid.removeChild(droppedElement)
-            }
-        
-            dropZone.appendChild(droppedElement);
-            droppedElement.classList.remove("gridElement");
-            droppedElement.classList.add("dropped");
-            
-
-            var removeButton = document.createElement("INPUT");
-            removeButton.setAttribute("src", "https://www.freeiconspng.com/thumbs/x-png/x-png-18.png")
-            removeButton.setAttribute("onclick", "remove_prospect(this)")
-            removeButton.setAttribute("type", "image")
-            removeButton.setAttribute("class", "removeButton")
+            });
+        }
 
 
 
 
-            droppedElement.appendChild(removeButton)
-
-            console.log(droppedElement.childNodes)
-
-            
-            
-            //dropZone.classList.remove("drop-zone--over");
-        }   
-        
-    });
-}
-
-
-
-
-</script>
-
-<script id="remove_js" src="index.js"></script>
-
+    </script>
 
 
 </body>
+
 </html>

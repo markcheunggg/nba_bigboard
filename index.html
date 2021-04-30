@@ -9,16 +9,10 @@
 
 
 <body>
+
     <h1>Big Board</h1>
-    <h2>Prospect Bank</h2>
-    <div class="grid-container" , id="prospect-bank">
-        <div draggable="true" id="CadeCunningham" onclick='create_modal(0)' class="gridElement draggable"> Cade Cunningham </div>
-        <div draggable="true" id="EvanMobley" onclick='create_modal(1)' class="gridElement draggable">Evan Mobley</div>
-        <div draggable="true" id="JalenSuggs" onclick='create_modal(2)' class="gridElement draggable">Jalen Suggs</div>
-        <div draggable="true" id="JalenGreen" onclick='create_modal(3)' class="gridElement draggable">Jalen Green</div>
-        <div draggable="true" id="JonathanKuminga" onclick='create_modal(4)' class="gridElement draggable">Jonathan Kuminga</div>
-    </div>
-    <div id="board">
+    <div id="container">
+        <img id ="board_image" src="img/board.png"><br>
         <div class="big-board">
             <div id="1" class="drop-zone"> </div>
             <div id="2" class="drop-zone"> </div>
@@ -27,6 +21,15 @@
             <div id="5" class="drop-zone"> </div>
         </div>
     </div>
+    <h2>Prospect Bank</h2>
+    <div class="grid-container" , id="prospect-bank">
+        <div draggable="true" id="CadeCunningham" onclick='create_modal(0)' class="gridElement draggable"> Cade Cunningham </div>
+        <div draggable="true" id="EvanMobley" onclick='create_modal(1)' class="gridElement draggable">Evan Mobley</div>
+        <div draggable="true" id="JalenSuggs" onclick='create_modal(2)' class="gridElement draggable">Jalen Suggs</div>
+        <div draggable="true" id="JalenGreen" onclick='create_modal(3)' class="gridElement draggable">Jalen Green</div>
+        <div draggable="true" id="JonathanKuminga" onclick='create_modal(4)' class="gridElement draggable">Jonathan Kuminga</div>
+    </div>
+    
 
     <div id="myModal" class="modal">
 

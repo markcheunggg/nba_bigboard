@@ -20,13 +20,6 @@
             <div id="4" class="drop-zone"> </div>
             <div id="5" class="drop-zone"> </div>
         </div>
-        <div class="big-board_col2">
-            <div id="6" class="drop-zone"> </div>
-            <div id="7" class="drop-zone"> </div>
-            <div id="8" class="drop-zone"> </div>
-            <div id="9" class="drop-zone"> </div>
-            <div id="10" class="drop-zone"> </div>
-        </div>
     </div>
     <h2>Prospect Bank</h2>
     <div class="grid-container" , id="prospect-bank">
@@ -136,10 +129,11 @@
                     removeButton.setAttribute("class", "removeButton")
 
 
-                    console.log(droppedElement.children)
-                    if (droppedElement.children.length == 0){
-                        droppedElement.appendChild(removeButton)
-                    }
+
+
+                    droppedElement.appendChild(removeButton)
+
+                    console.log(droppedElement.childNodes)
 
 
 

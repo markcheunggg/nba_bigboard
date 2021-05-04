@@ -22,21 +22,22 @@
 .big-board {
   display: grid;
   position: absolute;
-  padding-top: 24.3%;
-  padding-left: 12%;
+  margin-top:22.3vw;
+  margin-left: 12%;
 
   text-align: center;
-  top: 11.5%;
+  top: 5.5vw;
   grid-auto-rows: 2.55vw;
 
   /*grid-template-columns: auto auto auto auto;*/
   grid-gap: 0.6vw;
 }
 .drop-zone {
-  height: 2.2vw;
-  width: 10.9vw;
+  height: 2.38vw;
+  width: 11.5vw;
   text-align: center;
   border: 2px solid magenta;
+  margin-bottom: 1vh;
   /*margin-right: 20px;*/
 }
 

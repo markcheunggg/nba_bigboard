@@ -11,29 +11,32 @@
 <body>
 
     <h1>Big Board</h1>
-    <!-- We can start messing this line when we are ready to enable saving and sharing
-        <p onclick="render()">Save as image</p> -->
     <div id="container">
-        <img id="board_image" src="img/board.png"><br>
+        <img id ="board_image" src="img/cartoon_board.jpg"><br>
         <div class="big-board">
             <div id="1" class="drop-zone"> </div>
             <div id="2" class="drop-zone"> </div>
             <div id="3" class="drop-zone"> </div>
             <div id="4" class="drop-zone"> </div>
             <div id="5" class="drop-zone"> </div>
+            <div id="6" class="drop-zone"> </div>
+            <div id="7" class="drop-zone"> </div>
+            <div id="8" class="drop-zone"> </div>
+            <div id="9" class="drop-zone"> </div>
+            <div id="10" class="drop-zone"> </div>
+            <div id="11" class="drop-zone"> </div>
+            <div id="12" class="drop-zone"> </div>
         </div>
     </div>
     <h2>Prospect Bank</h2>
     <div class="grid-container" , id="prospect-bank">
-        <div draggable="true" id="CadeCunningham" onclick='create_modal(0)' class="gridElement draggable"> Cade
-            Cunningham </div>
+        <div draggable="true" id="CadeCunningham" onclick='create_modal(0)' class="gridElement draggable"> Cade Cunningham </div>
         <div draggable="true" id="EvanMobley" onclick='create_modal(1)' class="gridElement draggable">Evan Mobley</div>
         <div draggable="true" id="JalenSuggs" onclick='create_modal(2)' class="gridElement draggable">Jalen Suggs</div>
         <div draggable="true" id="JalenGreen" onclick='create_modal(3)' class="gridElement draggable">Jalen Green</div>
-        <div draggable="true" id="JonathanKuminga" onclick='create_modal(4)' class="gridElement draggable">Jonathan
-            Kuminga</div>
+        <div draggable="true" id="JonathanKuminga" onclick='create_modal(4)' class="gridElement draggable">Jonathan Kuminga</div>
     </div>
-
+    
 
     <div id="myModal" class="modal">
 
@@ -45,7 +48,6 @@
 
     </div>
     <script id="remove_js" src="index.js"></script>
-    <script src="html2canvas.min.js"></script>
     <script src="stats.js"></script>
     <script>
         var modal = document.getElementById("myModal");
@@ -134,11 +136,10 @@
                     removeButton.setAttribute("class", "removeButton")
 
 
-
-
-                    droppedElement.appendChild(removeButton)
-
-                    console.log(droppedElement.childNodes)
+                    console.log(droppedElement.children)
+                    if (droppedElement.children.length == 0){
+                        droppedElement.appendChild(removeButton)
+                    }
 
 
 
@@ -148,11 +149,7 @@
             });
         }
 
-        function render() {
-            html2canvas(document.querySelector("#container")).then(canvas => {
-                document.body.appendChild(canvas)
-            });
-        }
+
 
 
     </script>

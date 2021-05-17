@@ -20,7 +20,7 @@ function remove_prospect(the_button) {
 function create_modal(id) {
     var stats = data[id]
     console.log(stats);
-    // This basically just fills the box with the information we want to show for each player.
+
     document.getElementById('modal-text').innerHTML = `            
     <img src='img/${id+1}.png' style="float: right; height: 200px;" >
     <h1>${stats.Player}</h1>
@@ -32,13 +32,4 @@ function create_modal(id) {
     Blocks Per Game: ${stats.BLK}<br><br>`;
 
     modal.style.display = "block";
-}
-
-function display_image(canvas) {
-    console.log(canvas);
-    document.getElementById('modal-content').appendChild(canvas);
-
-
-
-    picModal.style.display = "block";
 }

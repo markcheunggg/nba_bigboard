@@ -1,8 +1,8 @@
 function remove_prospect(the_button) {
 
-    player = the_button.parentNode
+    var player = the_button.parentNode
     console.log(the_button)
-    board = player.parentNode
+    var board = player.parentNode
 
     player.classList.remove("dropped");
     player.classList.add("gridElement");
@@ -14,8 +14,20 @@ function remove_prospect(the_button) {
     prospect_bank.appendChild(player)
 
 
+}
 
-
+function nameSearch(){
+    input = document.getElementById("prospect_search").value.toLowerCase();
+    var prospects = document.getElementsByClassName("gridElement")
+    var bank = document.getElementById("prospect-bank")
+    for (var i = 0; i < prospects.length; i++){
+        if(prospects.item(i).innerHTML.toLowerCase().toString().includes(input)){
+            prospects.item(i).style.display = ""
+        } else {
+            prospects.item(i).style.display = "none"
+        
+        }
+    }
 }
 function create_modal(id) {
     var stats = data[id]

@@ -9,10 +9,11 @@ function remove_prospect(the_button) {
 
     player.removeChild(the_button)
     board.removeChild(player)
+    
 
     var prospect_bank = document.getElementById("prospect-bank")
     prospect_bank.appendChild(player)
-
+    player.setAttribute("onclick", "create_modal(this.id, event, this)")
 
 }
 
@@ -29,7 +30,13 @@ function nameSearch(){
         }
     }
 }
-function create_modal(id) {
+function create_modal(id, event, element) {
+
+    if (event.target != element){
+        event.stopPropagation();
+        return
+    }
+    id = parseInt(id.slice(-3))
     var stats = data[id]
     console.log(stats);
     document.getElementById("name").innerHTML = `${stats.Player}`;
@@ -55,3 +62,19 @@ function create_modal(id) {
     //document.getElementById("bottom-bar").style.marginLeft = "250px";
             // ^ This shifts the bottom box to the left when the sidebar is opened
 }    
+
+
+document.onkeydown = function(evt) {
+    /*You can know press "escape" to exit out of sidebar
+    */
+    evt = evt || window.event;
+    var isEscape = false;
+    if ("key" in evt) {
+        isEscape = (evt.key === "Escape" || evt.key === "Esc");
+    } else {
+        isEscape = (evt.keyCode === 27);
+    }
+    if (isEscape) {
+        closeNav()
+    }
+};

@@ -1,7 +1,7 @@
 let data =  [
         {
             "id": 1,
-            "Player": "Cade Cunningham",
+            "Player": "CadeCunningham",
             "Team": "Oklahoma State",
             "G": 27,
             "GS": 26,
@@ -30,7 +30,7 @@ let data =  [
         },
         {
             "id": 2,
-            "Player": "Evan Mobley",
+            "Player": "EvanMobley",
             "Team": "USC",
             "G": 33,
             "GS": 33,
@@ -59,7 +59,7 @@ let data =  [
         },
         {
             "id": 3,
-            "Player": "Jalen Suggs",
+            "Player": "JalenSuggs",
             "Team": "Gonzaga",
             "G": 30,
             "GS": 30,
@@ -88,7 +88,7 @@ let data =  [
         },
         {
             "id": 4,
-            "Player": "Jalen Green",
+            "Player": "JalenGreen",
             "Team": "G League Ignite",
             "G": 15,
             "GS": 15,
@@ -117,7 +117,7 @@ let data =  [
         },
         {
             "id": 5,
-            "Player": "Jonathan Kuminga",
+            "Player": "JonathanKuminga",
             "Team": "G League Ignite",
             "G": 13,
             "GS": 13,

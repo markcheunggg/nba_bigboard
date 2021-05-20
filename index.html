@@ -49,29 +49,29 @@
         <h2>Prospect Bank</h2>
         <input type="text" id="prospect_search" onkeyup="nameSearch()" placeholder="Search for name...">
         <div class="grid-container" id="prospect-bank">
-            <div draggable="true" id="CadeCunningham" class="gridElement draggable" onclick="create_modal(0)"> Cade
+            <div draggable="true" id="10000" class="gridElement draggable" onclick="create_modal(this.id, event, this)"> Cade
                 Cunningham </div>
-            <div draggable="true" id="EvanMobley" class="gridElement draggable" onclick="create_modal(1)">Evan Mobley
+            <div draggable="true" id="10001" class="gridElement draggable" onclick="create_modal(this.id, event, this)">Evan Mobley
             </div>
-            <div draggable="true" id="JalenSuggs" class="gridElement draggable" onclick="create_modal(2)">Jalen Suggs
+            <div draggable="true" id="10002" class="gridElement draggable" onclick="create_modal(this.id, event, this)">Jalen Suggs
             </div>
-            <div draggable="true" id="JalenGreen" class="gridElement draggable">Jalen Green</div>
-            <div draggable="true" id="JonathanKuminga" class="gridElement draggable">Jonathan Kuminga</div>
-            <div draggable="true" id="ScottieBarnes" class="gridElement draggable">Scottie Barnes</div>
-            <div draggable="true" id="KeonJohnson" class="gridElement draggable">Keon Johnson</div>
-            <div draggable="true" id="MosesMoody" class="gridElement draggable">Moses Moody</div>
-            <div draggable="true" id="DavionMitchell" class="gridElement draggable">Davion Mitchell</div>
-            <div draggable="true" id="JoshGiddey" class="gridElement draggable">Josh Giddey</div>
-            <div draggable="true" id="FranzWagner" class="gridElement draggable">Franz Wagner</div>
-            <div draggable="true" id="KaiJones" class="gridElement draggable">Kai Jones</div>
-            <div draggable="true" id="JamesBouknight" class="gridElement draggable">James Bouknight</div>
-            <div draggable="true" id="AlperenSengun" class="gridElement draggable">Alperen Sengun</div>
-            <div draggable="true" id="UsmanGaruba" class="gridElement draggable">Usman Garuba</div>
-            <div draggable="true" id="JadenSpringer" class="gridElement draggable">Jaden Springer</div>
-            <div draggable="true" id="ZiaireWilliams" class="gridElement draggable">Ziaire Williams</div>
-            <div draggable="true" id="JalenJohnson" class="gridElement draggable">Jalen Johnson</div>
-            <div draggable="true" id="CamThomas" class="gridElement draggable">Cam Thomas</div>
-            <div draggable="true" id="CoreyKispert" class="gridElement draggable">Corey Kispert</div>
+            <div draggable="true" id="10003" class="gridElement draggable" onclick="create_modal(this.id, event, this)">Jalen Green</div>
+            <div draggable="true" id="10004" class="gridElement draggable" onclick="create_modal(this.id, event, this)">Jonathan Kuminga</div>
+            <div draggable="true" id="10005" class="gridElement draggable">Scottie Barnes</div>
+            <div draggable="true" id="10006" class="gridElement draggable">Keon Johnson</div>
+            <div draggable="true" id="10007" class="gridElement draggable">Moses Moody</div>
+            <div draggable="true" id="10008" class="gridElement draggable">Davion Mitchell</div>
+            <div draggable="true" id="10009" class="gridElement draggable">Josh Giddey</div>
+            <div draggable="true" id="10010" class="gridElement draggable">Franz Wagner</div>
+            <div draggable="true" id="10011" class="gridElement draggable">Kai Jones</div>
+            <div draggable="true" id="10012" class="gridElement draggable">James Bouknight</div>
+            <div draggable="true" id="10013" class="gridElement draggable">Alperen Sengun</div>
+            <div draggable="true" id="10014" class="gridElement draggable">Usman Garuba</div>
+            <div draggable="true" id="10015" class="gridElement draggable">Jaden Springer</div>
+            <div draggable="true" id="10016" class="gridElement draggable">Ziaire Williams</div>
+            <div draggable="true" id="10017" class="gridElement draggable">Jalen Johnson</div>
+            <div draggable="true" id="10018" class="gridElement draggable">Cam Thomas</div>
+            <div draggable="true" id="10019" class="gridElement draggable">Corey Kispert</div>
             
         </div>
         <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
@@ -106,6 +106,7 @@
                 modal.style.display = "none";
             }
         }
+
         /*
         This is basically all the drag-and-drop stuff:
     
@@ -134,31 +135,6 @@
                 e.preventDefault();
                 const leftElement = document.getElementById(e.target.id);
 
-                /*
-                This code removes an existing player from the big board if you drag them out of their drop zone. 
-                It's obsolete cause of the "red-X" button, but it's here just in case we want to
-                reimplement it.
-        
-                leftElement.addEventListener("dragend", e=>{
-                    e.preventDefault();
-        
-                    if (leftElement.classList.contains("dropped")) {
-                        
-                        leftElement.classList.remove("dropped");
-                        leftElement.classList.add("gridElement");
-                        var grid = document.getElementById("prospect-bank")
-        
-                        if (dropZone.contains(leftElement)){
-                            dropZone.removeChild(leftElement)
-                        }
-                        console.log(dropZone.childNodes)
-                        console.log("hello")
-        
-                       
-                        grid.appendChild(leftElement)
-                    }
-        
-                    */
             })
 
             //When draggable element is dropped onto a drop zone.
@@ -177,6 +153,7 @@
                     dropZone.appendChild(droppedElement);
                     droppedElement.classList.remove("gridElement");
                     droppedElement.classList.add("dropped");
+                    droppedElement.setAttribute("onclick", null)
 
 
                     var removeButton = document.createElement("INPUT");

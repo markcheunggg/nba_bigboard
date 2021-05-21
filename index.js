@@ -60,7 +60,7 @@ function create_modal(id, event, element) {
     Blocks Per Game: ${stats.BLK}<br><br>`;*/
     document.getElementById("mySidebar").style.width = "250px";
     //document.getElementById("bottom-bar").style.marginLeft = "250px";
-            // ^ This shifts the bottom box to the left when the sidebar is opened
+    // ^ This shifts the bottom box to the left when the sidebar is opened
 }    
 
 
@@ -78,3 +78,19 @@ document.onkeydown = function(evt) {
         closeNav()
     }
 };
+
+function saveImage() {
+    //We have to change something about this next line to scale the image properly
+    //https://html2canvas.hertzen.com/configuration <-- Documentation
+    html2canvas(document.querySelector("#container"), {windowWidth: 900}).then(canvas => {
+        canvas.id = "savedBoard";
+        document.getElementById("modal-content").appendChild(canvas);
+        modal.style.display = "block";
+    });
+}
+
+function removeImage() {
+    document.getElementById("savedBoard").remove();
+    modal.style.display = 'none';
+}
+

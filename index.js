@@ -82,12 +82,17 @@ document.onkeydown = function(evt) {
 function saveImage() {
     //We have to change something about this next line to scale the image properly
     //https://html2canvas.hertzen.com/configuration <-- Documentation
-    html2canvas(document.querySelector("#container"), {windowWidth: 900}).then(canvas => {
-        canvas.id = "savedBoard";
+    html2canvas(document.querySelector("#container"), {width: 900, height: 300, windowWidth: 900, windowHeight: 300, y: 0, backgroundColor: "#808080"}).then(canvas => {
+        
+        
+        canvas.id = "savedBoard";      
         document.getElementById("modal-content").appendChild(canvas);
+
         modal.style.display = "block";
     });
 }
+
+
 
 function removeImage() {
     document.getElementById("savedBoard").remove();

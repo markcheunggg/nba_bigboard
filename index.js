@@ -98,6 +98,8 @@ function saveImage() {
     });
 }
 
+
+
 function removeImage() {
     document.getElementById("savedBoard").remove();
     document.getElementById("downloadLink").remove();

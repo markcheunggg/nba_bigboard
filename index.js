@@ -43,7 +43,7 @@ function create_modal(id, event, element) {
     document.getElementById("team").innerHTML = `${stats.Team}`;
     var img = document.createElement("img");
     img.src = `img/${id+1}.png`;
-    img.style = "float: right; height: 200px;";
+    img.style = "height: 200px;";
     document.getElementById("name").insertBefore(img, null);
     document.getElementById("stats").innerHTML = 
     `Points Per Game: ${stats.PTS}<br><br>
@@ -82,15 +82,25 @@ document.onkeydown = function(evt) {
 function saveImage() {
     //We have to change something about this next line to scale the image properly
     //https://html2canvas.hertzen.com/configuration <-- Documentation
-    html2canvas(document.querySelector("#container"), {windowWidth: 900}).then(canvas => {
-        canvas.id = "savedBoard";
-        document.getElementById("modal-content").appendChild(canvas);
+    html2canvas(document.querySelector("#container"), {allowTaint: true}).then(canvas => {
+        var img = document.createElement("img");
+        img.src = canvas.toDataURL();
+        var download = document.createElement("a");
+        download.href = img.src;
+        download.id = "downloadLink"
+        download.innerText = "DOWNLOAD"
+        download.download = "Download.png"
+        
+        img.id = "savedBoard";
+        document.getElementById("modal-content").appendChild(img);
+        document.getElementById("modal-content").appendChild(download);
         modal.style.display = "block";
     });
 }
 
 function removeImage() {
     document.getElementById("savedBoard").remove();
+    document.getElementById("downloadLink").remove();
     modal.style.display = 'none';
 }
 

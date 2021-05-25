@@ -44,7 +44,7 @@
   background-color: #111;
   width: 100%;
   /*height: auto;*/
-  height: calc(650px - 30vw);
+  height: calc(620px - 30vw);
   border-top: 5px solid black;
   overflow-y: auto;
   overflow-x: hidden;

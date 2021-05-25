@@ -1,3 +1,10 @@
+var espn_board = ["100", "101", "102", "103", "104", "106", "117", "108",
+"110", "105", "120", "119", "109", "113", "114", "118", "111", "128",
+"123", "112", "107", "122", "124", "116", "121", "133", "134", "115", "135", "136",
+"129", "137", "127", "138", "131", "139", "132", "140", "125", "141", "142", "143",
+"144", "145", "146", "126", "147", "148", "149", "150"]
+
+
 function remove_prospect(the_button) {
 
     var player = the_button.parentNode
@@ -82,7 +89,7 @@ document.onkeydown = function(evt) {
 function saveImage() {
     //We have to change something about this next line to scale the image properly
     //https://html2canvas.hertzen.com/configuration <-- Documentation
-    html2canvas(document.querySelector("#container"), {allowTaint: true , y: 0}).then(canvas => {
+    html2canvas(document.querySelector("#container"), {allowTaint: true , y: 70}).then(canvas => {
         var img = document.createElement("img");
         img.src = canvas.toDataURL();
         var download = document.createElement("a");
@@ -106,3 +113,44 @@ function removeImage() {
     modal.style.display = 'none';
 }
 
+
+
+function board_comp(){
+    /*
+    This function iterates through the CSS grid and gets the child of each drop zone.
+    It then appends the id of each child into an array - which is the order of the user's big board.
+    */
+    var board_order = []
+    for (i =1; i<=30; i++){
+        if (document.getElementById(i.toString()).childNodes.length > 1) {
+            board_order.push(document.getElementById(i.toString()).childNodes[1].id)      
+        } else{
+            board_order.push(null)
+        }
+    }
+    console.log(board_order)
+    /*
+    Calls the compare_espn function to compare the user's board to ESPN's big board.
+    */
+    console.log(compare_espn(board_order))
+}
+
+function compare_espn(user){
+    /*
+    This function returns the mean squared difference between all of the user's
+    picks and the picks from the ESPN big board.
+    */
+    squared_diff = 0
+    for (i = 0; i < 30; i++){
+        for (j=0; j< espn_board.length;j++){
+            if (user[i] == espn_board[j]){
+                squared_diff += ((i - j)**2)
+                continue;
+            }
+        }
+
+    }
+    var final = (squared_diff / 30)
+    return(final)
+
+}

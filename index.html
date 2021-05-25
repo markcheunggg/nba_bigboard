@@ -13,41 +13,44 @@
 <body>
     <div class="navbar">
         <a href="/index.html">NBA Draft Big Board Maker</a>
+        <button class="board-comp" onClick="board_comp()">Board Comp</button>
+
         <button class="save-image" onClick="saveImage()">Save as Image</button>
+        
     
     </div>
     <div id="container">
         <img id="board_image" src="img/cartoon_board.jpg"><br>
-        <div class="big-board">
+        <div class="big-board", id="big-board">
             <div id="1" class="drop-zone"> </div>
-            <div id="2" class="drop-zone"> </div>
-            <div id="3" class="drop-zone"> </div>
-            <div id="4" class="drop-zone"> </div>
-            <div id="5" class="drop-zone"> </div>
             <div id="6" class="drop-zone"> </div>
-            <div id="7" class="drop-zone"> </div>
-            <div id="8" class="drop-zone"> </div>
-            <div id="9" class="drop-zone"> </div>
-            <div id="10" class="drop-zone"> </div>
             <div id="11" class="drop-zone"> </div>
-            <div id="12" class="drop-zone"> </div>
-            <div id="13" class="drop-zone"> </div>
-            <div id="14" class="drop-zone"> </div>
-            <div id="15" class="drop-zone"> </div>
             <div id="16" class="drop-zone"> </div>
-            <div id="17" class="drop-zone"> </div>
-            <div id="18" class="drop-zone"> </div>
-            <div id="19" class="drop-zone"> </div>
-            <div id="20" class="drop-zone"> </div>
             <div id="21" class="drop-zone"> </div>
-            <div id="22" class="drop-zone"> </div>
-            <div id="23" class="drop-zone"> </div>
-            <div id="24" class="drop-zone"> </div>
-            <div id="25" class="drop-zone"> </div>
             <div id="26" class="drop-zone"> </div>
+            <div id="2" class="drop-zone"> </div>
+            <div id="7" class="drop-zone"> </div>
+            <div id="12" class="drop-zone"> </div>
+            <div id="17" class="drop-zone"> </div>
+            <div id="22" class="drop-zone"> </div>
             <div id="27" class="drop-zone"> </div>
+            <div id="3" class="drop-zone"> </div>
+            <div id="8" class="drop-zone"> </div>
+            <div id="13" class="drop-zone"> </div>
+            <div id="18" class="drop-zone"> </div>
+            <div id="23" class="drop-zone"> </div>
             <div id="28" class="drop-zone"> </div>
+            <div id="4" class="drop-zone"> </div>
+            <div id="9" class="drop-zone"> </div>
+            <div id="14" class="drop-zone"> </div>
+            <div id="19" class="drop-zone"> </div>
+            <div id="24" class="drop-zone"> </div>
             <div id="29" class="drop-zone"> </div>
+            <div id="5" class="drop-zone"> </div>
+            <div id="10" class="drop-zone"> </div>
+            <div id="15" class="drop-zone"> </div>
+            <div id="20" class="drop-zone"> </div>
+            <div id="25" class="drop-zone"> </div>
             <div id="30" class="drop-zone"> </div>
         </div>
     </div>
@@ -56,42 +59,69 @@
         <h2 id="bottom-title">THE DRAFT CLASS</h2>
         <input type="text" id="prospect_search" onkeyup="nameSearch()" placeholder="Search for name...">
         <div class="grid-container" id="prospect-bank">
-            <div draggable="true" id="10000" class="gridElement draggable" onclick="create_modal(this.id, event, this)"> CADE
+            <div draggable="true" id="100" class="gridElement draggable" onclick="create_modal(this.id, event, this)"> CADE
                 CUNNINGHAM </div>
-            <div draggable="true" id="10001" class="gridElement draggable" onclick="create_modal(this.id, event, this)">EVAN MOBLEY
+            <div draggable="true" id="101" class="gridElement draggable" onclick="create_modal(this.id, event, this)">EVAN MOBLEY
             </div>
-            <div draggable="true" id="10002" class="gridElement draggable" onclick="create_modal(this.id, event, this)">JALEN SUGGS
+            <div draggable="true" id="102" class="gridElement draggable" onclick="create_modal(this.id, event, this)">JALEN SUGGS
             </div>
-            <div draggable="true" id="10003" class="gridElement draggable" onclick="create_modal(this.id, event, this)">Jalen Green</div>
-            <div draggable="true" id="10004" class="gridElement draggable" onclick="create_modal(this.id, event, this)">Jonathan Kuminga</div>
-            <div draggable="true" id="10005" class="gridElement draggable">Scottie Barnes</div>
-            <div draggable="true" id="10006" class="gridElement draggable">Keon Johnson</div>
-            <div draggable="true" id="10007" class="gridElement draggable">Moses Moody</div>
-            <div draggable="true" id="10008" class="gridElement draggable">Davion Mitchell</div>
-            <div draggable="true" id="10009" class="gridElement draggable">Josh Giddey</div>
-            <div draggable="true" id="10010" class="gridElement draggable">Franz Wagner</div>
-            <div draggable="true" id="10011" class="gridElement draggable">Kai Jones</div>
-            <div draggable="true" id="10012" class="gridElement draggable">James Bouknight</div>
-            <div draggable="true" id="10013" class="gridElement draggable">Alperen Sengun</div>
-            <div draggable="true" id="10014" class="gridElement draggable">Usman Garuba</div>
-            <div draggable="true" id="10015" class="gridElement draggable">Jaden Springer</div>
-            <div draggable="true" id="10016" class="gridElement draggable">Ziaire Williams</div>
-            <div draggable="true" id="10017" class="gridElement draggable">Jalen Johnson</div>
-            <div draggable="true" id="10018" class="gridElement draggable">Cam Thomas</div>
-            <div draggable="true" id="10019" class="gridElement draggable">Corey Kispert</div>
-            <div draggable="true" id="10020" class="gridElement draggable">Isaiah Jackson</div>
-            <div draggable="true" id="10021" class="gridElement draggable">Chris Duarte</div>
-            <div draggable="true" id="10022" class="gridElement draggable">Ayo Dosunmu</div>
-            <div draggable="true" id="10023" class="gridElement draggable">Sharife Cooper</div>
-            <div draggable="true" id="10024" class="gridElement draggable">Jared Butler</div>
-            <div draggable="true" id="10025" class="gridElement draggable">Roko Prkacin</div>
-            <div draggable="true" id="10026" class="gridElement draggable">J. Robinson-Earl</div>
-            <div draggable="true" id="10027" class="gridElement draggable">Day'Ron Sharpe</div>
-            <div draggable="true" id="10028" class="gridElement draggable">Tre Mann</div>
-            <div draggable="true" id="10029" class="gridElement draggable">Aaron Henry</div>
-            <div draggable="true" id="10030" class="gridElement draggable">Bones Hyland</div>
-            <div draggable="true" id="10031" class="gridElement draggable">BJ Boston Jr.</div>
-            <div draggable="true" id="10032" class="gridElement draggable">Josh Christopher</div>
+            <div draggable="true" id="103" class="gridElement draggable" onclick="create_modal(this.id, event, this)">Jalen Green</div>
+            <div draggable="true" id="104" class="gridElement draggable" onclick="create_modal(this.id, event, this)">Jonathan Kuminga</div>
+            <div draggable="true" id="105" class="gridElement draggable">Scottie Barnes</div>
+            <div draggable="true" id="106" class="gridElement draggable">Keon Johnson</div>
+            <div draggable="true" id="107" class="gridElement draggable">Moses Moody</div>
+            <div draggable="true" id="108" class="gridElement draggable">Davion Mitchell</div>
+            <div draggable="true" id="109" class="gridElement draggable">Josh Giddey</div>
+            <div draggable="true" id="110" class="gridElement draggable">Franz Wagner</div>
+            <div draggable="true" id="111" class="gridElement draggable">Kai Jones</div>
+            <div draggable="true" id="112" class="gridElement draggable">James Bouknight</div>
+            <div draggable="true" id="113" class="gridElement draggable">Alperen Sengun</div>
+            <div draggable="true" id="114" class="gridElement draggable">Usman Garuba</div>
+            <div draggable="true" id="115" class="gridElement draggable">Jaden Springer</div>
+            <div draggable="true" id="116" class="gridElement draggable">Ziaire Williams</div>
+            <div draggable="true" id="117" class="gridElement draggable">Jalen Johnson</div>
+            <div draggable="true" id="118" class="gridElement draggable">Cam Thomas</div>
+            <div draggable="true" id="119" class="gridElement draggable">Corey Kispert</div>
+            <div draggable="true" id="120" class="gridElement draggable">Isaiah Jackson</div>
+            <div draggable="true" id="121" class="gridElement draggable">Chris Duarte</div>
+            <div draggable="true" id="122" class="gridElement draggable">Ayo Dosunmu</div>
+            <div draggable="true" id="123" class="gridElement draggable">Sharife Cooper</div>
+            <div draggable="true" id="124" class="gridElement draggable">Jared Butler</div>
+            <div draggable="true" id="125" class="gridElement draggable">Roko Prkacin</div>
+            <div draggable="true" id="126" class="gridElement draggable">J. Robinson-Earl</div>
+            <div draggable="true" id="127" class="gridElement draggable">Day'Ron Sharpe</div>
+            <div draggable="true" id="128" class="gridElement draggable">Tre Mann</div>
+            <div draggable="true" id="129" class="gridElement draggable">Aaron Henry</div>
+            <div draggable="true" id="130" class="gridElement draggable">Bones Hyland</div>
+            <div draggable="true" id="131" class="gridElement draggable">BJ Boston Jr.</div>
+            <div draggable="true" id="132" class="gridElement draggable">Josh Christopher</div>
+            <div draggable="true" id="133" class="gridElement draggable">Charles Bassey</div>
+            <div draggable="true" id="134" class="gridElement draggable">Marcus Bagley</div>
+            <div draggable="true" id="135" class="gridElement draggable">Greg Brown</div>
+            <div draggable="true" id="136" class="gridElement draggable">Max Abmas</div>
+            <div draggable="true" id="137" class="gridElement draggable">Filip Petrusev</div>
+            <div draggable="true" id="138" class="gridElement draggable">Terrence Shannon Jr.</div>
+            <div draggable="true" id="139" class="gridElement draggable">Miles McBride</div>
+            <div draggable="true" id="140" class="gridElement draggable">Joshua Primo</div>
+            <div draggable="true" id="141" class="gridElement draggable">Austin Reaves</div>
+            <div draggable="true" id="142" class="gridElement draggable">Rokas Jokubaitis</div>
+            <div draggable="true" id="143" class="gridElement draggable">Trey Murphy III</div>
+            <div draggable="true" id="144" class="gridElement draggable">RaiQuan Gray</div>
+            <div draggable="true" id="145" class="gridElement draggable">Ariel Hukporti</div>
+            <div draggable="true" id="146" class="gridElement draggable">Juhann Begarin</div>
+            <div draggable="true" id="147" class="gridElement draggable">Matthew Hurt</div>
+            <div draggable="true" id="148" class="gridElement draggable">Kessler Edwards</div>
+            <div draggable="true" id="149" class="gridElement draggable">Johnny Juzang</div>
+            <div draggable="true" id="150" class="gridElement draggable">Isaiah Todd</div>
+
+
+
+
+
+
+
+
+
         </div>
         <!--Sidebar-->
         <div id="mySidebar" class="sidebar">
@@ -184,8 +214,6 @@
                     removeButton.setAttribute("type", "image")
                     removeButton.setAttribute("class", "removeButton")
 
-
-                    console.log(droppedElement.children)
                     if (droppedElement.children.length == 0) {
                         droppedElement.appendChild(removeButton)
                     }

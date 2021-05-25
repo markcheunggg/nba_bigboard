@@ -3,6 +3,28 @@
   src: "fonts/FrontPageNeue.otf";
 }
 
+.navbar {
+  position: relative;
+  background-color: rgb(255, 132, 0);
+  overflow: hidden;
+  width: 100%;
+  border-bottom: white solid 3px;
+}
+
+.navbar a {
+  font-family: "FrontPageNeue";
+  float: left;
+  color: #f2f2f2;
+
+  padding-top: 12px;
+  padding-bottom: 11px;
+  padding-left: 22px;
+  text-decoration: none;
+  font-size: 38px;
+  transform: scaleY(1.2);
+  letter-spacing: 0.7px;
+}
+
 .gridElement {
   border: 2px solid black;
   background-color: white;
@@ -21,11 +43,13 @@
   bottom: 0;
   background-color: #111;
   width: 100%;
-  height: auto;
-  /*height: calc(650px - 30vw);*/
+  /*height: auto;*/
+  height: calc(650px - 30vw);
   border-top: 5px solid black;
   overflow-y: auto;
   overflow-x: hidden;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 #bottom-title {
@@ -69,7 +93,7 @@
   position: absolute;
   padding-top: 14.8%;
   padding-left: 13.4vw;
-  top: 0%;
+  top: 9.6%;
 
   grid-auto-rows: 2.22vw;
   grid-template-columns: repeat(6, 1fr);
@@ -101,6 +125,7 @@
   padding-top: 1%;
   margin-left: 1%;
   margin-right: 1%;
+  max-width: 100%;
 }
 
 .removeButton {
@@ -151,7 +176,7 @@ body {
   top: 0;
   width: 100%;
   /* Full width */
-  height: 100%; 
+  height: 100%;
   /* Full height */
   overflow: hidden;
   overflow-x: hidden;
@@ -165,21 +190,13 @@ body {
 /* Modal Content */
 .modal-content {
   background-color: white;
-
-  /*
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 50px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 50%;
   margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  border-radius: 10px;
-  width: 50%;
-*/
-
-  padding: 20px;
-  border: 1px solid #888;
-  border-radius: 10px;
-  width: 50%;
-  margin-left: 10%;
-  margin-right: 10%;
 }
 
 /* The Close Button */
@@ -273,20 +290,32 @@ input::placeholder {
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #bottom-bar {
   transition: margin-left 0.5s; /* If you want a transition effect */
-  padding: 20px;
 }
 
 #downloadLink {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #05a3ca;
   color: white;
   padding: 15px 25px;
   text-align: center;
   text-decoration: none;
-  margin-left: 45%;
 }
 
 #savedBoard {
   width: 100%;
-  
+  height: 100%;
+  padding-bottom: 5%;
+}
+
+.save-image {
+  position: absolute;
+  font-family: "FrontPageNeue";
+  font-size: 15px;
+  transform: scaleY(1.3);
+  letter-spacing: 0.8px;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 3px;
+  border: black 2px solid;
+  background-color: rgb(255, 254, 230);
 }

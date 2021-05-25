@@ -82,13 +82,13 @@ document.onkeydown = function(evt) {
 function saveImage() {
     //We have to change something about this next line to scale the image properly
     //https://html2canvas.hertzen.com/configuration <-- Documentation
-    html2canvas(document.querySelector("#container"), {allowTaint: true}).then(canvas => {
+    html2canvas(document.querySelector("#container"), {allowTaint: true , y: 0}).then(canvas => {
         var img = document.createElement("img");
         img.src = canvas.toDataURL();
         var download = document.createElement("a");
         download.href = img.src;
         download.id = "downloadLink"
-        download.innerText = "DOWNLOAD"
+        download.innerText = "Download as Image"
         download.download = "Download.png"
         
         img.id = "savedBoard";

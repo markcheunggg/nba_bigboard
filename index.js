@@ -4,6 +4,13 @@ var espn_board = ["100", "101", "102", "103", "104", "106", "117", "108",
 "129", "137", "127", "138", "131", "139", "132", "140", "125", "141", "142", "143",
 "144", "145", "146", "126", "147", "148", "149", "150"]
 
+var athletic_board = ["100", "102", "101", "103", "104", "105", "108", "113", "112", "109",
+"107", "110", "111", "121", "119", "116", "106", "122", "114", "117", "120", "115",
+"123", "148", "125", "143", "135", "118", "126", "127", "124", "139", "130", "151",
+"128", "140", "134", "142", "131", "132", "141", "152", "153", "129", "150", "138",
+"154", "147", "155", "156"
+]
+
 
 function remove_prospect(the_button) {
 
@@ -43,7 +50,10 @@ function create_modal(id, event, element) {
         event.stopPropagation();
         return
     }
-    id = parseInt(id.slice(-3))
+    console.log(id)
+
+    id = parseInt(id.slice(-2))
+    console.log(id)
     var stats = data[id]
     console.log(stats);
     document.getElementById("name").innerHTML = `${stats.Player}`;
@@ -99,6 +109,7 @@ function saveImage() {
         download.download = "Download.png"
         
         img.id = "savedBoard";
+        img.setAttribute("class", "user_board")
         document.getElementById("modal-content").appendChild(img);
         document.getElementById("modal-content").appendChild(download);
         modal.style.display = "block";
@@ -108,9 +119,12 @@ function saveImage() {
 
 
 function removeImage() {
-    document.getElementById("savedBoard").remove();
-    document.getElementById("downloadLink").remove();
-    modal.style.display = 'none';
+    var close_button = document.getElementById("close")
+    while (document.getElementById("modal-content").firstChild) {
+        document.getElementById("modal-content").removeChild(document.getElementById("modal-content").firstChild);
+    }
+    document.getElementById("modal-content").append(close_button)
+    modal.style.display = "none"
 }
 
 
@@ -132,18 +146,41 @@ function board_comp(){
     /*
     Calls the compare_espn function to compare the user's board to ESPN's big board.
     */
-    console.log(compare_espn(board_order))
+    espn_mse = compare_media(board_order, espn_board)
+    athletic_mse = compare_media(board_order, athletic_board)
+
+    var logo = new Image()
+    var results = document.createElement('results');
+
+
+    if (Math.min(espn_mse, athletic_mse) == espn_mse){
+        results.innerHTML = "Your closest media match is:"
+        logo.src = "img/espn-logo.png"
+    } else if (Math.min(espn_mse, athletic_mse) == athletic_mse){
+        results.innerHTML = "Your closest media match is:"
+        logo.src = "img/athletic-logo.png"
+    }
+    logo.setAttribute("class", "media_logo")
+    results.setAttribute("class", "results")
+    document.getElementById("modal-content").appendChild(results)
+    document.getElementById("modal-content").appendChild(logo);
+    console.log(modal)
+    modal.style.display = "block";
+
+
 }
 
-function compare_espn(user){
+function compare_media(user, board){
     /*
     This function returns the mean squared difference between all of the user's
     picks and the picks from the ESPN big board.
     */
+
+
     squared_diff = 0
     for (i = 0; i < 30; i++){
-        for (j=0; j< espn_board.length;j++){
-            if (user[i] == espn_board[j]){
+        for (j=0; j< board.length;j++){
+            if (user[i] == board[j]){
                 squared_diff += ((i - j)**2)
                 continue;
             }

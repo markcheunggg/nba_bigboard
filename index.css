@@ -9,6 +9,7 @@
   overflow: hidden;
   width: 100%;
   border-bottom: white solid 3px;
+  height: 64px;
 }
 
 .navbar a {
@@ -16,8 +17,8 @@
   float: left;
   color: #f2f2f2;
 
-  padding-top: 12px;
-  padding-bottom: 11px;
+  padding-top: 10px;
+  padding-bottom: 9px;
   padding-left: 22px;
   text-decoration: none;
   font-size: 38px;
@@ -92,21 +93,20 @@
   display: grid;
   position: absolute;
   padding-top: 14.8%;
-  padding-left: 13.4vw;
-  top: 9.6%;
+  padding-left: 13.2vw;
+  top: 9.255%;
 
   grid-auto-rows: 2.22vw;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 0.6vw;
-  column-gap: 3.23%;
+  column-gap: 4.07%;
 }
 
 .drop-zone {
   position: relative;
   height: 2.12vw;
-  width: 10.56vw;
+  width: 10.25vw;
   text-align: left;
-  border: 0.1vw solid white;
   background-color: white;
   text-transform: uppercase;
   font-family: "HelveticaNeue-Medium", sans-serif;
@@ -190,6 +190,7 @@ body {
 /* Modal Content */
 .modal-content {
   background-color: white;
+  padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 50px;
@@ -197,6 +198,7 @@ body {
   border-radius: 10px;
   width: 50%;
   margin: auto;
+  text-align: center;
 }
 
 /* The Close Button */
@@ -205,6 +207,7 @@ body {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  padding-bottom: 5px;
 }
 
 .close:hover,
@@ -318,4 +321,19 @@ input::placeholder {
   margin-bottom: 3px;
   border: black 2px solid;
   background-color: rgb(255, 254, 230);
+}
+
+.media_logo {
+  max-width: 200px;
+  max-height: 200px;
+  width: 50%;
+  height: 50%;
+  padding-top: 20px;
+  margin: auto;
+  display: block;
+}
+
+.results {
+  font-size: 150%;
+  text-align: center;
 }
